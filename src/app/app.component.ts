@@ -1,3 +1,5 @@
+declare var $: any;
+
 import { Component } from '@angular/core';
 
 @Component({
