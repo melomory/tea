@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { ProductType } from "../types/product.type";
-import { Observable } from "rxjs";
+import { filter, Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 
 @Injectable({
@@ -13,5 +13,11 @@ export class ProductService {
 
   getProducts(): Observable<ProductType[]> {
     return this.http.get<ProductType[]>("https://testologia.ru/tea");
+  }
+
+  getProduct(id: number): Observable<ProductType[]> {
+    return this.getProducts().pipe(
+      filter((result) => !result.find((item) => item.id === id))
+    );
   }
 }

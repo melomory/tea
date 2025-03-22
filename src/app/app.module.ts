@@ -11,6 +11,7 @@ import { ProductCardComponent } from "./components/common/product-card/product-c
 import { ProductService } from "./services/product.service";
 import { HttpClientModule } from "@angular/common/http";
 import { RestrictTextLengthPipe } from './pipes/restrict-text-length.pipe';
+import { ProductComponent } from './components/page/product/product.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { RestrictTextLengthPipe } from './pipes/restrict-text-length.pipe';
     ProductsComponent,
     ProductCardComponent,
     RestrictTextLengthPipe,
+    ProductComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
