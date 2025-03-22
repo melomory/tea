@@ -1,72 +1,6 @@
-<header>
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <div class="container-fluid">
-      <a href="#" class="navbar-brand">Logo</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a href="#" class="nav-link active" aria-current="page">Главная</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Преимущества</a>
-          </li>
-          <li class="nav-item"><a href="#" class="nav-link">Цены</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Контакты</a></li>
-        </ul>
-        <form class="d-flex" action="" method="GET">
-          <input
-            class="form-control me-3 pe-0"
-            type="search"
-            placeholder="Поиск чая"
-            aria-label="Поиск чая"
-          />
-          <button class="btn btn-outline-primary pt-0 pb-0 pe-4 ps-4 me-2">
-            Найти
-          </button>
-        </form>
-      </div>
-    </div>
-  </nav>
-</header>
-<section>
-  <div class="container">
-    <div class="my-4 pt-5">
-      <div class="card border-0">
-        <img
-          class="card-img"
-          src="assets/hero-slider/image1.png"
-          alt="Два пакетика чая"
-        />
-        <div class="card-img-overlay m-lg-5 pt-lg-5">
-          <h2
-            class="card-title fw-bold ms-4 ms-sm-5 my-xl-5 my-1 pt-xl-5 display-5 col-sm-8 col-xl-6"
-          >
-            Скидки на травяные чаи
-          </h2>
-          <p class="card-text mt-xl-5 ms-4 ms-sm-5 pt-lg-3 fs-5">
-            Узнай все подробности, заполнив заявку
-          </p>
-          <a
-            href="#create-order-form"
-            class="btn btn-primary px-5 hvr-shadow-radial ms-4 ms-sm-5 my-3 my-lg-5"
-            >Заполнить</a
-          >
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<header-component></header-component>
+<router-outlet></router-outlet>
+<!--
 <section>
   <div class="container">
     <h2 class="text-center my-5 pt-4 py-1 fw-bold">Наши чайные коллекции</h2>
@@ -210,74 +144,7 @@
     </div>
   </div>
 </section>
-<section>
-  <div class="container col-lg-6 col-md-8 col-sm-12">
-    <h2 class="text-center my-5 pt-4 fw-bold">
-      Ответы на часто задаваемые вопросы
-    </h2>
-    <div class="mx-4" id="accordion">
-      <h6
-        class="bg-primary rounded-3 py-4 ps-4 text-white fw-bold mt-1 d-flex align-items-center justify-content-between"
-      >
-        Собираете ли вы подарочные боксы?
-      </h6>
-      <div class="border-0 mb-1 ps-4 pb-0">
-        <p class="mb-0">
-          Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой
-          вкус, объем и стоимость!
-        </p>
-      </div>
 
-      <h6
-        class="bg-primary rounded-3 py-4 ps-4 text-white fw-bold mt-3 d-flex align-items-center justify-content-between"
-      >
-        Сколько у вас разновидностей чая?
-      </h6>
-      <div class="border-0 mb-1 ps-4 pb-0">
-        <p class="mb-0">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga,
-          asperiores.
-        </p>
-      </div>
-
-      <h6
-        class="bg-primary rounded-3 py-4 ps-4 text-white fw-bold mt-3 d-flex align-items-center justify-content-between"
-      >
-        В какой срок осуществляется доставка?
-      </h6>
-      <div class="border-0 mb-1 ps-4 pb-0">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga,
-          asperiores.
-        </p>
-      </div>
-
-      <h6
-        class="bg-primary rounded-3 py-4 ps-4 text-white fw-bold mt-3 d-flex align-items-center justify-content-between"
-      >
-        У вас обновляется ассортимент?
-      </h6>
-      <div class="border-0 mb-1 ps-4 pb-0">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga,
-          asperiores.
-        </p>
-      </div>
-
-      <h6
-        class="bg-primary rounded-3 py-4 ps-4 text-white fw-bold mt-3 d-flex align-items-center justify-content-between"
-      >
-        Какого объема у вас пачки чая?
-      </h6>
-      <div class="border-0 mb-1 ps-4 pb-0">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga,
-          asperiores.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
 <section>
   <div class="container col-lg-4 col-md-6 col-sm-8">
     <h2 class="text-center fw-bold my-5 pt-4 pb-2">Сделать заказ</h2>
@@ -339,7 +206,5 @@
       </div>
     </form>
   </div>
-</section>
-<footer class="bg-light mt-5">
-  <p class="ps-3 py-3 m-0">Все права защищены</p>
-</footer>
+</section> -->
+<footer-component></footer-component>

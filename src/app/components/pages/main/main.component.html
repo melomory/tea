@@ -1,0 +1,128 @@
+<section>
+  <div class="container">
+    <div class="my-4 pt-5">
+      <div class="card border-0">
+        <img
+          class="card-img"
+          src="assets/hero-slider/image1.png"
+          alt="Два пакетика чая"
+        />
+        <div class="card-img-overlay m-lg-5 pt-lg-5">
+          <h2
+            class="card-title fw-bold ms-4 ms-sm-5 my-xl-5 my-1 pt-xl-5 display-5 col-sm-8 col-xl-6"
+          >
+            Скидки на травяные чаи
+          </h2>
+          <p class="card-text mt-xl-5 ms-4 ms-sm-5 pt-lg-3 fs-5">
+            Узнай все подробности, заполнив заявку
+          </p>
+          <a
+            href="#create-order-form"
+            class="btn btn-primary px-5 hvr-shadow-radial ms-4 ms-sm-5 my-3 my-lg-5"
+            >Заполнить</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container col-lg-6 col-md-8 col-sm-12">
+    <h2 class="text-center my-5 pt-4 fw-bold">
+      Ответы на часто задаваемые вопросы
+    </h2>
+    <div class="mx-4" id="accordion">
+      <h6
+        class="bg-primary rounded-3 py-4 ps-4 text-white fw-bold mt-1 d-flex align-items-center justify-content-between"
+      >
+        Собираете ли вы подарочные боксы?
+      </h6>
+      <div class="border-0 mb-1 ps-4 pb-0">
+        <p class="mb-0">
+          Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой
+          вкус, объем и стоимость!
+        </p>
+      </div>
+
+      <h6
+        class="bg-primary rounded-3 py-4 ps-4 text-white fw-bold mt-3 d-flex align-items-center justify-content-between"
+      >
+        Сколько у вас разновидностей чая?
+      </h6>
+      <div class="border-0 mb-1 ps-4 pb-0">
+        <p class="mb-0">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga,
+          asperiores.
+        </p>
+      </div>
+
+      <h6
+        class="bg-primary rounded-3 py-4 ps-4 text-white fw-bold mt-3 d-flex align-items-center justify-content-between"
+      >
+        В какой срок осуществляется доставка?
+      </h6>
+      <div class="border-0 mb-1 ps-4 pb-0">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga,
+          asperiores.
+        </p>
+      </div>
+
+      <h6
+        class="bg-primary rounded-3 py-4 ps-4 text-white fw-bold mt-3 d-flex align-items-center justify-content-between"
+      >
+        У вас обновляется ассортимент?
+      </h6>
+      <div class="border-0 mb-1 ps-4 pb-0">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga,
+          asperiores.
+        </p>
+      </div>
+
+      <h6
+        class="bg-primary rounded-3 py-4 ps-4 text-white fw-bold mt-3 d-flex align-items-center justify-content-between"
+      >
+        Какого объема у вас пачки чая?
+      </h6>
+      <div class="border-0 mb-1 ps-4 pb-0">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga,
+          asperiores.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div
+  class="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  [class.show]="canShowPopup"
+  [style.display]="canShowPopup ? 'block' : 'none'"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+        (click)="closePopup()"
+      ></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-center fs-4">Посмотрите наши чайные коллекции</p>
+      </div>
+      <div class="modal-footer border-0">
+        <a type="button" class="btn btn-primary" [routerLink]="'/products'">Смотреть</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop fade show" *ngIf="canShowPopup"></div>
