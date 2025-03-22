@@ -15,7 +15,7 @@ export class MainComponent implements OnInit {
     this.observable = new Observable((observer) => {
       const popupTimeout = setTimeout(() => {
         observer.next();
-      }, 1000);
+      }, 10000);
 
       return {
         unsubscribe() {
