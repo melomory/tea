@@ -1,0 +1,170 @@
+<section>
+  <div class="container col-lg-4 col-md-6 col-sm-8" *ngIf="!(isSent && isOrderCreated)">
+    <h2 class="text-center fw-bold my-5 pt-4 pb-2">Сделать заказ</h2>
+    <form id="create-order-form" [formGroup]="orderForm" novalidate>
+      <div class="row mb-3 g-3">
+        <div class="col col-xs-12">
+          <label class="form-label" for="product">Товар</label>
+          <input
+            class="form-control"
+            type="text"
+            id="product"
+            name="product"
+            formControlName="productTitle"
+          />
+        </div>
+      </div>
+      <div class="row mb-3 g-3">
+        <div class="col col-md-4 col-12">
+          <label class="form-label" for="first-name">Имя</label>
+          <input
+            class="form-control"
+            type="text"
+            id="first-name"
+            name="first-name"
+            formControlName="firstName"
+            [class.is-invalid]="(orderForm.get('firstName')?.errors?.['pattern'] || orderForm.get('firstName')?.touched && orderForm.get('firstName')?.errors?.['required'])"
+          />
+          <div
+            *ngIf="
+              orderForm.get('firstName')?.invalid &&
+              (orderForm.get('firstName')?.dirty ||
+                orderForm.get('firstName')?.touched)
+            "
+          >
+            <div
+              class="text-danger"
+              *ngIf="orderForm.get('firstName')?.errors?.['pattern']"
+            >
+              Можно вводить только буквы
+            </div>
+          </div>
+        </div>
+        <div class="col col-md-4 col-12">
+          <label class="form-label" for="last-name">Фамилия</label>
+          <input
+            class="form-control"
+            type="text"
+            id="last-name"
+            name="last-name"
+            formControlName="lastName"
+            [class.is-invalid]="(orderForm.get('lastName')?.errors?.['pattern'] || orderForm.get('lastName')?.touched && orderForm.get('lastName')?.errors?.['required'])"
+          />
+          <div
+            *ngIf="
+              orderForm.get('lastName')?.invalid &&
+              (orderForm.get('lastName')?.dirty ||
+                orderForm.get('lastName')?.touched)
+            "
+          >
+            <div
+              class="text-danger"
+              *ngIf="orderForm.get('lastName')?.errors?.['pattern']"
+            >
+              Можно вводить только буквы
+            </div>
+          </div>
+        </div>
+        <div class="col col-md-4 col-12">
+          <label class="form-label" for="phone">Телефон</label>
+          <input
+            class="form-control"
+            type="tel"
+            id="phone"
+            name="phone"
+            formControlName="phone"
+            [class.is-invalid]="(orderForm.get('phone')?.errors?.['pattern'] || orderForm.get('phone')?.touched && orderForm.get('phone')?.errors?.['required'])"
+          />
+          <div
+            *ngIf="
+              orderForm.get('phone')?.invalid &&
+              (orderForm.get('phone')?.dirty || orderForm.get('phone')?.touched)
+            "
+          >
+            <div
+              class="text-danger"
+              *ngIf="orderForm.get('phone')?.errors?.['pattern']"
+            >
+              Можно вводить только знак "+" и цифры. Должно быть 11 цифр
+            </div>
+          </div>
+        </div>
+        <div class="col col-md-6 col-12">
+          <label class="form-label" for="country">Страна</label>
+          <input
+            class="form-control"
+            type="text"
+            id="country"
+            name="country"
+            formControlName="country"
+            [class.is-invalid]="(orderForm.get('country')?.errors?.['pattern'] || orderForm.get('country')?.touched && orderForm.get('country')?.errors?.['required'])"
+          />
+        </div>
+        <div class="col col-md-6 col-12">
+          <label class="form-label" for="postal-code">Индекс</label>
+          <input
+            class="form-control"
+            type="text"
+            id="postal-code"
+            name="postal-code"
+            formControlName="postalCode"
+            [class.is-invalid]="(orderForm.get('postalCode')?.errors?.['pattern'] || orderForm.get('postalCode')?.touched && orderForm.get('postalCode')?.errors?.['required'])"
+          />
+        </div>
+        <div class="col col-xs-12">
+          <label class="form-label" for="address">Адрес</label>
+          <input
+            class="form-control"
+            type="text"
+            id="address"
+            name="address"
+            formControlName="address"
+            [class.is-invalid]="(orderForm.get('address')?.errors?.['pattern'] || orderForm.get('address')?.touched && orderForm.get('address')?.errors?.['required'])"
+          />
+          <div
+            *ngIf="
+              orderForm.get('address')?.invalid &&
+              (orderForm.get('address')?.dirty ||
+                orderForm.get('address')?.touched)
+            "
+          >
+            <div
+              class="text-danger"
+              *ngIf="orderForm.get('address')?.errors?.['pattern']"
+            >
+              Можно вводить буквы, цифры, пробелы, дефис и слеш
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3 g-3">
+        <div class="col col-xs-12">
+          <label class="form-label" for="comment">Комментарий к заказу</label>
+          <textarea
+            class="form-control"
+            type="text"
+            id="comment"
+            name="comment"
+            rows="4"
+            formControlName="comment"
+          ></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col d-flex align-items-center gap-2">
+          <button
+            class="btn btn-primary px-5 hvr-shadow-radial"
+            id="create-order"
+            (click)="createOrder()"
+          >
+            Отправить
+          </button>
+          <p class="m-0 text-danger" *ngIf="isSent && !isOrderCreated">Произошла ошибка. Попробуйте еще раз.</p>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="isSent && isOrderCreated">
+    <h2 class="text-center fw-bold my-5 pt-4 pb-2">Спасибо за заказ!</h2>
+  </div>
+</section>

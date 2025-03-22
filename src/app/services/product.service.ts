@@ -7,8 +7,6 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root",
 })
 export class ProductService {
-  private products: ProductType[] = [];
-
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<ProductType[]> {

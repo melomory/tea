@@ -10,8 +10,10 @@ import { ProductsComponent } from "./components/pages/products/products.componen
 import { ProductCardComponent } from "./components/common/product-card/product-card.component";
 import { ProductService } from "./services/product.service";
 import { HttpClientModule } from "@angular/common/http";
-import { RestrictTextLengthPipe } from './pipes/restrict-text-length.pipe';
-import { ProductComponent } from './components/page/product/product.component';
+import { RestrictTextLengthPipe } from "./pipes/restrict-text-length.pipe";
+import { ProductComponent } from "./components/pages/product/product.component";
+import { OrderComponent } from "./components/pages/order/order.component";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,8 +25,14 @@ import { ProductComponent } from './components/page/product/product.component';
     ProductCardComponent,
     RestrictTextLengthPipe,
     ProductComponent,
+    OrderComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
