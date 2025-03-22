@@ -2,7 +2,7 @@ import { Component, Input, OnDestroy, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 
 @Component({
-  selector: "app-main",
+  selector: "main",
   templateUrl: "./main.component.html",
   styleUrls: ["./main.component.scss"],
 })

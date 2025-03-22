@@ -1,0 +1,12 @@
+<section>
+  <div class="container">
+    <h2 class="text-center my-5 pt-4 py-1 fw-bold">Наши чайные коллекции</h2>
+    <div class="row row-cols-md-3 row-cols-sm-2 row-cols-xs-1 g-4">
+      <ng-template ngFor let-item [ngForOf]="products">
+        <div class="col">
+          <product-card [product]="item"></product-card>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</section>
