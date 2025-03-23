@@ -21,8 +21,9 @@ export class ProductsComponent implements OnInit {
 
     if (this.productService.subject) {
       this.isSearch = true;
+    }
 
-      this.productService
+    this.productService
       .getProducts(this.productService.subject)
       .pipe(tap(() => (this.isLoading = false)))
       .subscribe({
@@ -34,21 +35,6 @@ export class ProductsComponent implements OnInit {
           this.router.navigate(["/"]);
         },
       });
-
-    } else {
-      this.productService
-        .getProducts()
-        .pipe(tap(() => (this.isLoading = false)))
-        .subscribe({
-          next: (data) => {
-            this.products = data;
-          },
-          error: (error) => {
-            console.log(error);
-            this.router.navigate(["/"]);
-          },
-        });
-    }
   }
 
   getSubject() {
