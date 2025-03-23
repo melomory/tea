@@ -13,7 +13,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { RestrictTextLengthPipe } from "./pipes/restrict-text-length.pipe";
 import { ProductComponent } from "./components/pages/product/product.component";
 import { OrderComponent } from "./components/pages/order/order.component";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -32,6 +32,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

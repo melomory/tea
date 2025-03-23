@@ -1,16 +1,18 @@
 import { Injectable } from "@angular/core";
 import { ProductType } from "../types/product.type";
 import { filter, Observable } from "rxjs";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 
 @Injectable({
   providedIn: "root",
 })
 export class ProductService {
+  public subject: string = "";
+
   constructor(private http: HttpClient) {}
 
-  getProducts(): Observable<ProductType[]> {
-    return this.http.get<ProductType[]>("https://testologia.ru/tea");
+  getProducts(searchSubject?: string): Observable<ProductType[]> {
+    return this.http.get<ProductType[]>("https://testologia.ru/tea", { params: searchSubject ? new HttpParams().set('search', searchSubject) : undefined });
   }
 
   getProduct(id: number): Observable<ProductType[]> {

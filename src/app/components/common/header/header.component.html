@@ -16,7 +16,9 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" [routerLink]="'/'">Главная</a>
+            <a class="nav-link active" aria-current="page" [routerLink]="'/'"
+              >Главная</a
+            >
           </li>
           <li class="nav-item">
             <a class="nav-link" [routerLink]="'/products'">Каталог</a>
@@ -26,11 +28,19 @@
           <input
             class="form-control me-3 pe-0"
             type="search"
+            name="subject"
             placeholder="Поиск чая"
             aria-label="Поиск чая"
+            [(ngModel)]="formValues.subject"
           />
-          <button class="btn btn-outline-primary pt-0 pb-0 pe-4 ps-4 me-2">
+          <button
+            class="btn btn-outline-primary pt-0 pb-0 pe-4 ps-4 me-2"
+            (click)="find()"
+          >
             Найти
+          </button>
+          <button class="btn btn-outline-primary pt-0 pb-0 px-2 me-2 fs-4" (click)="resetSearch()">
+            ⟳
           </button>
         </form>
       </div>

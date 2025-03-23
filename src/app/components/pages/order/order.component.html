@@ -1,5 +1,8 @@
 <section>
-  <div class="container col-lg-4 col-md-6 col-sm-8" *ngIf="!(isSent && isOrderCreated)">
+  <div
+    class="container col-lg-4 col-md-6 col-sm-8"
+    *ngIf="!(isSent && isOrderCreated)"
+  >
     <h2 class="text-center fw-bold my-5 pt-4 pb-2">Сделать заказ</h2>
     <form id="create-order-form" [formGroup]="orderForm" novalidate>
       <div class="row mb-3 g-3">
@@ -155,11 +158,14 @@
           <button
             class="btn btn-primary px-5 hvr-shadow-radial"
             id="create-order"
+            [disabled]="isSending"
             (click)="createOrder()"
           >
             Отправить
           </button>
-          <p class="m-0 text-danger" *ngIf="isSent && !isOrderCreated">Произошла ошибка. Попробуйте еще раз.</p>
+          <p class="m-0 text-danger" *ngIf="isSent && !isOrderCreated">
+            Произошла ошибка. Попробуйте еще раз.
+          </p>
         </div>
       </div>
     </form>

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { FormBuilder, FormControl, Validators } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
-import { Subscription } from "rxjs";
+import { Observable, Subscription, tap } from "rxjs";
 import { OrderService } from "src/app/services/order.service";
 
 @Component({
@@ -51,15 +51,29 @@ export class OrderComponent implements OnInit, OnDestroy {
   });
 
   private subscriptionOrder: Subscription | null = null;
+  private errorShowingObservable: Observable<void>;
 
   public isOrderCreated: boolean = false;
   public isSent: boolean = false;
+  public isSending: boolean = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder,
     private orderService: OrderService
-  ) {}
+  ) {
+    this.errorShowingObservable = new Observable((observer) => {
+      const errorShowingTimeout = setTimeout(() => {
+        observer.next();
+      }, 3000);
+
+      return {
+        unsubscribe() {
+          clearTimeout(errorShowingTimeout);
+        },
+      };
+    });
+  }
 
   ngOnInit(): void {
     const productParam =
@@ -76,6 +90,7 @@ export class OrderComponent implements OnInit, OnDestroy {
   }
 
   public createOrder(): void {
+    this.isSending = true;
     if (this.orderForm.valid) {
       this.subscriptionOrder = this.orderService
         .createOrder({
@@ -88,15 +103,19 @@ export class OrderComponent implements OnInit, OnDestroy {
           address: this.orderForm.get("address")?.value ?? "",
           comment: this.orderForm.get("comment")?.value ?? "",
         })
+        .pipe(tap(() => (this.isSending = false)))
         .subscribe((response) => {
           this.isSent = true;
           if (response.success && !response.message) {
             this.orderForm.reset();
             this.isOrderCreated = true;
+          } else {
+            this.errorShowingObservable.subscribe(() => (this.isSent = false));
           }
         });
     } else {
       this.orderForm.markAllAsTouched();
+      this.isSending = false;
     }
   }
 }
