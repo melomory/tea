@@ -1,13 +1,14 @@
 import { Component, Input, OnDestroy, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 
+declare var $: any;
+
 @Component({
   selector: "main",
   templateUrl: "./main.component.html",
   styleUrls: ["./main.component.scss"],
 })
 export class MainComponent implements OnInit {
-
   private observable: Observable<void>;
   public canShowPopup: boolean = false;
 
@@ -28,6 +29,24 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
     this.observable.subscribe(() => {
       this.canShowPopup = true;
+    });
+
+    const icons = {
+      header: "ui-icon-chevron-e",
+      activeHeader: "ui-icon-chevron-s",
+    };
+
+    $("#accordion").accordion({
+      collapsible: true,
+      icons: icons,
+    });
+
+    $(".slick-carousel").slick({
+      dots: true,
+      infinite: true,
+      speed: 500,
+      fade: true,
+      cssEase: "linear",
     });
   }
 
