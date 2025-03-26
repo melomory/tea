@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Component, HostBinding, OnDestroy, OnInit } from "@angular/core";
 import { FormBuilder, FormControl, Validators } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
 import { Observable, Subscription, tap } from "rxjs";
@@ -10,6 +10,8 @@ import { OrderService } from "src/app/services/order.service";
   styleUrls: ["./order.component.scss"],
 })
 export class OrderComponent implements OnInit, OnDestroy {
+  @HostBinding('className') componentClass: string = 'content';
+
   orderForm = this.fb.group({
     productTitle: new FormControl(
       { value: "", disabled: true },
@@ -89,7 +91,11 @@ export class OrderComponent implements OnInit, OnDestroy {
     this.subscriptionOrder?.unsubscribe();
   }
 
-  public createOrder(): void {
+  public onSubmit(): void {
+    this.createOrder();
+  }
+
+  private createOrder(): void {
     this.isSending = true;
     if (this.orderForm.valid) {
       this.subscriptionOrder = this.orderService

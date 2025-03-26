@@ -4,7 +4,12 @@
     *ngIf="!(isSent && isOrderCreated)"
   >
     <h2 class="text-center fw-bold my-5 pt-4 pb-2">Сделать заказ</h2>
-    <form id="create-order-form" [formGroup]="orderForm" novalidate>
+    <form
+      id="create-order-form"
+      [formGroup]="orderForm"
+      novalidate
+      (ngSubmit)="onSubmit()"
+    >
       <div class="row mb-3 g-3">
         <div class="col col-xs-12">
           <label class="form-label" for="product">Товар</label>
@@ -37,6 +42,12 @@
           >
             <div
               class="text-danger"
+              *ngIf="orderForm.get('firstName')?.errors?.['required']"
+            >
+              Введите имя
+            </div>
+            <div
+              class="text-danger"
               *ngIf="orderForm.get('firstName')?.errors?.['pattern']"
             >
               Можно вводить только буквы
@@ -60,6 +71,12 @@
                 orderForm.get('lastName')?.touched)
             "
           >
+            <div
+              class="text-danger"
+              *ngIf="orderForm.get('lastName')?.errors?.['required']"
+            >
+              Введите фамилию
+            </div>
             <div
               class="text-danger"
               *ngIf="orderForm.get('lastName')?.errors?.['pattern']"
@@ -86,6 +103,12 @@
           >
             <div
               class="text-danger"
+              *ngIf="orderForm.get('phone')?.errors?.['required']"
+            >
+              Введите телефон
+            </div>
+            <div
+              class="text-danger"
               *ngIf="orderForm.get('phone')?.errors?.['pattern']"
             >
               Можно вводить только знак "+" и цифры. Должно быть 11 цифр
@@ -102,6 +125,20 @@
             formControlName="country"
             [class.is-invalid]="(orderForm.get('country')?.errors?.['pattern'] || orderForm.get('country')?.touched && orderForm.get('country')?.errors?.['required'])"
           />
+          <div
+            *ngIf="
+              orderForm.get('country')?.invalid &&
+              (orderForm.get('country')?.dirty ||
+                orderForm.get('country')?.touched)
+            "
+          >
+            <div
+              class="text-danger"
+              *ngIf="orderForm.get('country')?.errors?.['required']"
+            >
+              Введите страну
+            </div>
+          </div>
         </div>
         <div class="col col-md-6 col-12">
           <label class="form-label" for="postal-code">Индекс</label>
@@ -113,6 +150,20 @@
             formControlName="postalCode"
             [class.is-invalid]="(orderForm.get('postalCode')?.errors?.['pattern'] || orderForm.get('postalCode')?.touched && orderForm.get('postalCode')?.errors?.['required'])"
           />
+          <div
+            *ngIf="
+              orderForm.get('postalCode')?.invalid &&
+              (orderForm.get('postalCode')?.dirty ||
+                orderForm.get('postalCode')?.touched)
+            "
+          >
+            <div
+              class="text-danger"
+              *ngIf="orderForm.get('postalCode')?.errors?.['required']"
+            >
+              Введите почтовый индекс
+            </div>
+          </div>
         </div>
         <div class="col col-xs-12">
           <label class="form-label" for="address">Адрес</label>
@@ -131,6 +182,12 @@
                 orderForm.get('address')?.touched)
             "
           >
+            <div
+              class="text-danger"
+              *ngIf="orderForm.get('address')?.errors?.['required']"
+            >
+              Введите адрес
+            </div>
             <div
               class="text-danger"
               *ngIf="orderForm.get('address')?.errors?.['pattern']"
@@ -158,8 +215,7 @@
           <button
             class="btn btn-primary px-5 hvr-shadow-radial"
             id="create-order"
-            [disabled]="isSending"
-            (click)="createOrder()"
+            [disabled]="isSending || orderForm.disabled || orderForm.invalid"
           >
             Отправить
           </button>
