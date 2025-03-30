@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ProductService } from "src/app/services/product.service";
-import { ProductType } from "src/app/types/product.type";
+import { ProductType } from "src/types/product.type";
 
 @Component({
   selector: "product",
@@ -30,7 +30,6 @@ export class ProductComponent implements OnInit {
       if (params["id"]) {
         this.productService.getProduct(params["id"]).subscribe({
           next: (data) => {
-            console.log(data);
             if (data) {
               this.product = data[0];
             }
