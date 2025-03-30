@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, HostBinding, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { tap } from "rxjs";
 import { ProductService } from "src/app/services/product.service";
@@ -10,6 +10,8 @@ import { ProductType } from "src/app/types/product.type";
   styleUrls: ["./products.component.scss"],
 })
 export class ProductsComponent implements OnInit {
+  @HostBinding('className') componentClass: string = 'content';
+
   public products: ProductType[] = [];
   public isLoading: boolean = false;
   public isSearch: boolean = false;
