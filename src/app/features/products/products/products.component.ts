@@ -2,7 +2,7 @@ import { Component, HostBinding, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { tap } from "rxjs";
 import { ProductService } from "src/app/services/product.service";
-import { ProductType } from "src/app/types/product.type";
+import { ProductType } from "src/types/product.type";
 
 @Component({
   selector: "products",
