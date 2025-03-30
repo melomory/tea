@@ -30,7 +30,6 @@ export class ProductComponent implements OnInit {
       if (params["id"]) {
         this.productService.getProduct(params["id"]).subscribe({
           next: (data) => {
-            console.log(data);
             if (data) {
               this.product = data[0];
             }

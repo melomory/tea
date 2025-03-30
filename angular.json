@@ -29,7 +29,6 @@
             ],
             "styles": [
               "node_modules/jquery-ui/dist/themes/base/jquery-ui.min.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/slick-carousel/slick/slick-theme.css",
               "node_modules/slick-carousel/slick/slick.css",
               "src/styles.scss"
@@ -37,7 +36,6 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/jquery-ui/dist/jquery-ui.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/slick-carousel/slick/slick.min.js"
             ]
           },
