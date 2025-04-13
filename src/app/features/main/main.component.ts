@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input, OnDestroy, OnInit } from "@angular/core";
+import { Component, HostBinding, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 
 declare var $: any;
@@ -9,7 +9,7 @@ declare var $: any;
   styleUrls: ["./main.component.scss"],
 })
 export class MainComponent implements OnInit {
-  @HostBinding('className') componentClass: string = 'content';
+  @HostBinding("className") componentClass: string = "content";
 
   private observable: Observable<void>;
   public canShowPopup: boolean = false;
